@@ -10,7 +10,7 @@
  *****************************************************************************/
 /**
  * @file stats.h 
- * @brief Definitions and macros required for the c1m1 assignment
+ * @brief Definitions and macros required for the c1 final assignment
  *
  * <Add Extended Description Here>
  *

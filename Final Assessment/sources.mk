@@ -13,17 +13,23 @@
 
 ifeq ($(PLATFORM),MSP432)
 SOURCES := \
-	  ./main.c \
-	  ./memory.c \
-		startup_msp432p401r_gcc.c \
-		system_msp432p401r.c \
-		interrupts_msp432p401r_gcc.c
+	  main.c \
+	  memory.c \
+	  startup_msp432p401r_gcc.c \
+	  system_msp432p401r.c \
+	  interrupts_msp432p401r_gcc.c \
+	  course1.c \
+	  data.c \
+	  stats.c
 
 else
 
 SOURCES := \
-	  ./main.c \
-	  ./memory.c 
+	  main.c \
+	  memory.c \
+	  course1.c \
+	  data.c \
+	  stats.c
 endif
 
 OBJS := $(SOURCES:.c=.o)

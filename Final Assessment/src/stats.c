@@ -9,19 +9,18 @@
  *
  *****************************************************************************/
 /**
- * @file stats.c 
+ * @file <Add File Name> 
+ * @brief <Add Brief Description Here >
  *
- * @brief Coursera Course 1 Module 1 Assessment 1 (C1M1)
+ * <Add Extended Description Here>
  *
- * Inclusion of the main program and all function definitions
- * requird for the C1M1 assessment.
- *
- * @author Anchita Goyal
- * @date 30/09/2023 >
+ * @author <Add FirsName LastName>
+ * @date <Add date >
  *
  */
 
 #include <stdio.h>
+#include "platform.h"
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -35,7 +34,7 @@ static void swap32(unsigned char* a, unsigned char* b)
 	*b = temp;
 }
 
-void main() {
+/**void main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -43,12 +42,9 @@ void main() {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-
-  /* Statistics and Printing Functions Go Here */
 	print_statistics(test,SIZE);
+}**/
 
-}
 
 /*function to print the statistics of an array*/
 void print_statistics(unsigned char* arr, unsigned int size)
@@ -72,10 +68,12 @@ void print_statistics(unsigned char* arr, unsigned int size)
 /*function to print array elements with positions*/
 void print_array(unsigned char* arr, unsigned int size)
 {
+	#ifdef VERBOSE
 	for(unsigned char i=0; i<size; i++)
 	{
 		printf("arr[%i]=%i,\t",i,arr[i]);
 	}
+	#endif
 }
 
 /*function to find the median of an array*/

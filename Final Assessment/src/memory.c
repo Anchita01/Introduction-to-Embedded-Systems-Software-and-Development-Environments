@@ -48,3 +48,91 @@ void clear_all(char * ptr, unsigned int size){
   set_all(ptr, 0, size);
 }
 
+
+
+
+static void swap32(unsigned char* a, unsigned char* b)
+{
+	unsigned char temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
+{
+	uint8_t * src_start = src;
+	uint8_t * dst_start = dst;
+	
+	if(dst_start<src_start)
+	{
+		while(length--)
+		{
+			*dst_start++ = *src_start++;
+		}	
+	}
+
+	else
+	{
+		uint8_t * src_end = src_start + ( length - 1 );
+		uint8_t * dst_end = dst_start + ( length - 1 );
+		while(length--)
+		{
+			*dst_end-- = *src_end++;		
+		}
+	}
+
+	return dst;
+}
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length)
+{	
+	for(uint8_t i = 0; i<length; i++)
+	{
+		*(dst + i) = *(src + i);
+	}
+	
+	return dst;
+}
+
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value)
+{
+	for(uint8_t i = 0; i<length; i++)
+	{
+		*(src + i) = value;
+	}
+	
+	return src;
+}
+
+uint8_t * my_memzero(uint8_t * src, size_t length)
+{
+	for(uint8_t i = 0; i<length; i++)
+	{
+		*(src + i) = 0;
+	}
+	
+	return src;
+}
+
+uint8_t * my_reverse(uint8_t * src, size_t length)
+{
+	size_t swap_no = length >>1;
+	
+	for(uint8_t i = 0; i<swap_no; i++)
+	{
+		swap32((src+i), (src+length-1-i));
+	}
+	
+	return src;
+}
+
+int32_t * reserve_words(size_t length)
+{
+	return malloc(length*sizeof(length));
+}
+
+void free_words(int32_t * src)
+{
+	free( (void*)src ); 
+}

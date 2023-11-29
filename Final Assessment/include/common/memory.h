@@ -91,3 +91,95 @@ void set_all(char * ptr, char value, unsigned int size);
 void clear_all(char * ptr, unsigned int size);
 
 #endif /* __MEMORY_H__ */
+
+/////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief Move data of size (length) from address (src) to address (dst)
+ *
+ * The behavior should handle overlap of source and destination. 
+ * Copy should occur, with no data corruption.
+ *
+ * @param src Pointer to source
+ * @param dst Pointer to destination
+ * @param length Number of elements to move
+ *
+ * @return pointer to the destination.
+ */
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Copy data of size (length) from address (src) to address (dst)
+ *
+ * The behavior is undefined if there is a overlap of source and destination. 
+ * Copy should still occur, will likely corrupt data.
+ *
+ * @param src Pointer to source
+ * @param dst Pointer to destination
+ * @param length Number of elements to copy
+ *
+ * @return pointer to the destination.
+ */
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief set all locations of memory:
+ *   				     - Start at address (src)
+ *				     - of size (length) to value
+ *
+ * Should not use set_all() function.
+ *
+ * @param src Pointer to source
+ * @param length Number of elements to set the value
+ * @param value the value to set the elements to
+ *
+ * @return pointer to the source.
+ */
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
+
+/**
+ * @brief set all locations of memory:
+ *   				     - Start at address (src)
+ *				     - of size (length) to zero.
+ *
+ * Should not reuse clear_all() function.
+ *
+ * @param src Pointer to source
+ * @param length Number of elements to set their value
+ *
+ * @return pointer to the destination.
+ */
+uint8_t * my_memzero(uint8_t * src, size_t length);
+
+/**
+ * @brief reverse the order of all the bytes:
+ *   				     - Start at address (src)
+ *				     - whole number (length) .
+ *
+ * Should not reuse clear_all() function.
+ *
+ * @param src Pointer to source
+ * @param length Number of elements to set their value
+ *
+ * @return pointer to the source.
+ */
+uint8_t * my_reverse(uint8_t * src, size_t length);
+
+
+/**
+ * @brief reverse number of words (length) on dynamic memory
+ *
+ * @param src Pointer to source
+ *
+ * @return pointer to memory if successfull, null pointer if not successfull.
+ */
+int32_t * reverse_words(size_t length);
+
+/**
+ * @brief free pre reserved memory space on dynamic memory
+ *
+ * @param src Pointer to source
+ */
+void free_words(int32_t * src);
+
+
